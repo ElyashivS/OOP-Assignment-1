@@ -82,10 +82,8 @@ public class Rational implements Scalar {
         return new Rational(numerator*-1,denominator);
     }
 
-    @Override
-    public void Print() {
-    System.out.print(this.numerator+"/"+this.denominator);
-    }
+
+
     public int getNumerator(){
         return numerator;
     }
@@ -148,14 +146,5 @@ public class Rational implements Scalar {
     }
 
 
-    public static void main(String[] args) {
-        Scalar a=new Rational(2,3);
-        Scalar b=new Integer(105);
-        Scalar c=a.power(3);
-        Scalar d=c.neg();
 
-        System.out.println(a.add(b).toString());
-        System.out.println(b.toString());
-
-    }
 }

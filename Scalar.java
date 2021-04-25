@@ -12,6 +12,6 @@ public interface Scalar {
         public Scalar power(int exponent);
         public int sign();
         public Scalar neg();
-        public void Print();
+
     }
 

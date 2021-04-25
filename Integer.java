@@ -64,10 +64,7 @@ public class Integer implements Scalar {
         return new Integer(this.number*-1);
     }
 
-    @Override
-    public void Print() {
-        System.out.print(this.number);
-    }
+
     public int getNumber(){
         return number;
     }
@@ -78,13 +75,5 @@ public class Integer implements Scalar {
         return a.toString();
     }
 
-    public static void main(String[] args) {
-        Scalar a=new Integer(2);
-        int b=4;
-        Scalar c=a.power(b);
 
-        System.out.println(a.toString());
-
-
-    }
 }
