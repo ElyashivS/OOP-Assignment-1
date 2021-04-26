@@ -21,9 +21,7 @@ public class Monomial {
     }
 
     public Scalar evaluate (Scalar s) {
-        s.power(exponent);
-        s.mul(coefficient);
-        return s;
+        return (s.power(exponent)).mul(coefficient);
     }
 
     public Monomial derivative() {
@@ -39,16 +37,31 @@ public class Monomial {
 
     @Override
     public String toString() {
-        return this.coefficient + "X^" + this.exponent;
-    }
-    public static void main (String[]args){
-        Scalar q = new Integer(2);
-        Scalar s = new Rational(2, 3);
-        Monomial m = new Monomial(2, q);
-        System.out.println(m.evaluate(s));
+        String s = "";
+        if (this.exponent == 0) {
+            return s += this.coefficient;
+        }
 
-        Scalar in = new Rational(49, 7);
-        System.out.println(in.power(2));
+        if (this.coefficient.equals(new Integer(0))) {
+            return s;
+        }
+
+        if (this.coefficient.equals(new Integer(1)) && this.exponent == 1)
+            return s += "x";
+
+        if (this.coefficient.equals(new Integer(1))) {
+            return s += "X^" + this.exponent;
+        }
+
+        if (this.exponent == 1) {
+            return this.coefficient + "X";
+        }
+
+        if (this.coefficient.equals(new Integer(-1))) {
+            return s += "-X^" + this.exponent;
+        }
+
+        return this.coefficient + "X^" + this.exponent;
     }
 }
 

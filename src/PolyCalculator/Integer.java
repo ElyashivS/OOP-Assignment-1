@@ -75,5 +75,13 @@ public class Integer implements Scalar {
         return a.toString();
     }
 
+    @Override
+    public boolean equals(Integer s) {
+        return (s.number == this.number);
+    }
 
+    @Override
+    public boolean equals(Rational s) {
+        return false;
+    }
 }

@@ -82,6 +82,15 @@ public class Rational implements Scalar {
         return new Rational(numerator*-1,denominator);
     }
 
+    @Override
+    public boolean equals(Integer s) {
+        return false;
+    }
+
+    @Override
+    public boolean equals(Rational s) {
+        return ((s.denominator == this.denominator) && (s.numerator == this.numerator));
+    }
 
 
     public int getNumerator(){
@@ -144,7 +153,4 @@ public class Rational implements Scalar {
             }
         }
     }
-
-
-
 }

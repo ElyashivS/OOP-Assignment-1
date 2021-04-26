@@ -12,5 +12,7 @@ public interface Scalar {
     public Scalar power(int exponent);
     public int sign();
     public Scalar neg();
+    public boolean equals(Integer s);
+    public boolean equals(Rational s);
 
 }
