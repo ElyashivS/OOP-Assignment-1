@@ -32,9 +32,9 @@ public class Monomial {
     }
 
     public int sign() {
-            if (this.coefficient.equals(new Integer(0))) {
+        if (this.coefficient.equals(new Integer(0))) {
                 return 0;
-            }
+        }
         return java.lang.Integer.compare(this.coefficient.sign(), 0);
     }
 

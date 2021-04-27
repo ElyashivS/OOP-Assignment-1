@@ -13,8 +13,6 @@ class MonomialTest {
     private Monomial e; // 10X^2
 
     private int x;
-    private int y;
-    private int z;
 
     @BeforeEach
     void setUp() {
@@ -26,8 +24,6 @@ class MonomialTest {
         t = new Integer(10);
 
         x = 43;
-        y = 0;
-        z = -12;
     }
 
     @Test
