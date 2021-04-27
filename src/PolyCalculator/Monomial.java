@@ -32,6 +32,9 @@ public class Monomial {
     }
 
     public int sign() {
+            if (this.coefficient.equals(new Integer(0))) {
+                return 0;
+            }
         return java.lang.Integer.compare(this.coefficient.sign(), 0);
     }
 
@@ -47,21 +50,21 @@ public class Monomial {
         }
 
         if (this.coefficient.equals(new Integer(1)) && this.exponent == 1)
-            return s += "x";
+            return s += "X";
 
         if (this.coefficient.equals(new Integer(1))) {
             return s += "X^" + this.exponent;
         }
 
         if (this.exponent == 1) {
-            return this.coefficient + "X";
+            return s += this.coefficient + "X";
         }
 
         if (this.coefficient.equals(new Integer(-1))) {
             return s += "-X^" + this.exponent;
         }
 
-        return this.coefficient + "X^" + this.exponent;
+        return s += this.coefficient + "X^" + this.exponent;
     }
 }
 
