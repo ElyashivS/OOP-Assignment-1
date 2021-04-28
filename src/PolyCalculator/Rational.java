@@ -1,8 +1,8 @@
 package PolyCalculator;
 
 public class Rational implements Scalar {
-    int numerator;
-    int denominator;
+    private int numerator;
+    private int denominator;
     public Rational(int numerator,int denominator){
         if (denominator==0)
             throw new IllegalArgumentException("denominator cannot be 0");
@@ -82,14 +82,26 @@ public class Rational implements Scalar {
         return new Rational(numerator*-1,denominator);
     }
 
+    public boolean equals(Scalar s){
+        return s.equalsRational(this);
+    }
     @Override
-    public boolean equals(Integer s) {
-        return false;
+    public boolean equalsInteger(Integer s) {
+        Rational a=reduce(this);
+        if( a.getDenominator()==1){
+            return a.getNumerator()==s.getNumber();
+        }
+        else{
+            return false;
+        }
+
     }
 
     @Override
-    public boolean equals(Rational s) {
-        return ((s.denominator == this.denominator) && (s.numerator == this.numerator));
+    public boolean equalsRational(Rational s) {
+        Rational a=reduce(this);
+        Rational b=reduce(s);
+        return (a.getNumerator()==b.getNumerator()&&a.getDenominator()==b.getDenominator());
     }
 
 
@@ -152,5 +164,11 @@ public class Rational implements Scalar {
                 return "-"+a.toString() + "/" + b.toString();
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Scalar a=new Integer(5);
+        Scalar b=new Rational(10,2);
+        System.out.print(a.equals(b));
     }
 }
