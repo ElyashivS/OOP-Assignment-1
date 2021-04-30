@@ -1,5 +1,7 @@
 package PolyCalculator;
 
+
+
 public class Integer implements Scalar {
     private int number;
     public Integer(int number){
@@ -41,7 +43,12 @@ public class Integer implements Scalar {
 
     @Override
     public Scalar power(int exponent) {
-        int c=1;
+        if (this.number==0&&exponent==0)
+            return new Integer(1);
+        if (this.number==0&&exponent>0)
+            throw new IllegalArgumentException("0 by the power of negative is not defined");
+
+            int c=1;
         int counter=exponent;
         while(exponent>0){
             c=c*this.number;
@@ -74,14 +81,28 @@ public class Integer implements Scalar {
         java.lang.Integer a=number;
         return a.toString();
     }
-
     @Override
-    public boolean equals(Integer s) {
+    public boolean equals(Scalar s){
+        return s.equalsInteger(this);
+    }
+    @Override
+    public boolean equalsInteger(Integer s) {
         return (s.number == this.number);
     }
 
     @Override
-    public boolean equals(Rational s) {
-        return false;
+    public boolean equalsRational(Rational s) {
+        Rational a=s.reduce(s);
+        if( a.getDenominator()==1){
+            return a.getNumerator()==number;
+        }
+        else{
+            return false;
+        }
+
     }
+
+
+
+
 }
