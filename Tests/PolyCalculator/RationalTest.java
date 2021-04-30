@@ -1,5 +1,8 @@
-package PolyCalculator;
+package PolyCalculatorTests;
 
+import PolyCalculator.Integer;
+import PolyCalculator.Rational;
+import PolyCalculator.Scalar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -94,6 +97,11 @@ class RationalTest {
     @Test
     void reduce() {
         Scalar i = q.reduce(q);
+        assertEquals("4/5", q.toString());
+    }
+
+    @Test
+    void testToString() {
         assertEquals("4/5", q.toString());
     }
 }

@@ -1,5 +1,8 @@
-package PolyCalculator;
+package PolyCalculatorTests;
 
+import PolyCalculator.Integer;
+import PolyCalculator.Rational;
+import PolyCalculator.Scalar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -84,5 +87,10 @@ class IntegerTest {
     void testEquals1() {
         boolean i = t.equals(h);
         assertFalse(i);
+    }
+
+    @Test
+    void testToString() {
+        assertEquals("2", f.toString());
     }
 }

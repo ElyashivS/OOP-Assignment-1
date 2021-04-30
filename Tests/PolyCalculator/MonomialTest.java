@@ -1,8 +1,14 @@
-package PolyCalculator;
+package PolyCalculatorTests;
 
+import PolyCalculator.Integer;
+import PolyCalculator.Monomial;
+import PolyCalculator.Rational;
+import PolyCalculator.Scalar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MonomialTest {
     private Scalar f; // 2
@@ -54,5 +60,10 @@ class MonomialTest {
     void sign() {
         x = m.sign();
         assertEquals(1, x);
+    }
+
+    @Test
+    void testToString() {
+        assertEquals("2X^2", m.toString());
     }
 }
